@@ -46,19 +46,24 @@ class HomeFragment : Fragment() {
         _homeBinding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = _homeBinding!!.root
         val toolbar = view.findViewById<Toolbar>(R.id.toolbar);
+//        toolbar.title = "My Recipe Application"
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-//        val appBarLayout: AppBarLayout = view.findViewById(R.id.appbar);
-//        appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener {
-//                appBarLayout, verticalOffset ->
-//            val scrollRange = appBarLayout.totalScrollRange
-//            if (scrollRange + verticalOffset == 0) {
-//                toolbar.title = "Collapsed Title"
-//            } else {
-//                toolbar.title = "Expanded Title"
-//            }
-//        })
-
+//        val appBarLayout = view.findViewById<AppBarLayout>(R.id.appbar)
+//        appBarLayout.addOnOffsetChangedListener(
+//            AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+//                val scrollRange = appBarLayout.totalScrollRange
+//                Log.i("CTB", "${scrollRange + verticalOffset}")
+//                if (scrollRange + verticalOffset == 0) {
+//                    toolbar.title = "Collapsed Title"
+//                    Log.i("CTB", toolbar.title as String)
+////                    (activity as AppCompatActivity).supportActionBar?.title = "Collapsed Title"
+//                } else {
+//                    toolbar.title = "Expanded Title"
+//                    Log.i("CTB", toolbar.title as String)
+//                }
+//            },
+//        )
         return view
     }
 
