@@ -1,12 +1,14 @@
 package com.nagma.myrecipeapplication
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.android.material.appbar.AppBarLayout
 import com.nagma.myrecipeapplication.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,6 +47,18 @@ class HomeFragment : Fragment() {
         val view = _homeBinding!!.root
         val toolbar = view.findViewById<Toolbar>(R.id.toolbar);
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+//        val appBarLayout: AppBarLayout = view.findViewById(R.id.appbar);
+//        appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener {
+//                appBarLayout, verticalOffset ->
+//            val scrollRange = appBarLayout.totalScrollRange
+//            if (scrollRange + verticalOffset == 0) {
+//                toolbar.title = "Collapsed Title"
+//            } else {
+//                toolbar.title = "Expanded Title"
+//            }
+//        })
+
         return view
     }
 
