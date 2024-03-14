@@ -5,11 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import com.nagma.myrecipeapplication.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+
+    private var _homeBinding: FragmentHomeBinding? = null
+    private val homeBinding get() = _homeBinding!!
 
 /**
  * A simple [Fragment] subclass.
@@ -34,9 +40,18 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+//        return inflater.inflate(R.layout.fragment_home, container, false)
+        _homeBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = _homeBinding!!.root
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar);
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        return view
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _homeBinding = null
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
