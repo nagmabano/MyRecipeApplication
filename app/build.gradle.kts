@@ -42,6 +42,8 @@ dependencies {
     // for adding fragment
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
 
+    implementation("com.google.android.material:material:1.11.0")
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
