@@ -12,6 +12,7 @@
     <string name="item_header">Items</string>
     <string name="item_name">Chocolate</string>
     <string name="quantity_label">Quantity</string>
+    <string name="product_size_label">%d ml of bottle</string>
     <string name="item_price">Price</string>
     <string name="description_label">Description</string>
 </resources>

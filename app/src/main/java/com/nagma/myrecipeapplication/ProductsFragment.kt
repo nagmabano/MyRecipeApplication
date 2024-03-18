@@ -1,10 +1,17 @@
 package com.nagma.myrecipeapplication
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import com.nagma.myrecipeapplication.data.Product
+import com.nagma.myrecipeapplication.databinding.FragmentProductsBinding
+import com.nagma.myrecipeapplication.databinding.ItemBinding
+import java.lang.StringBuilder
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,18 +30,37 @@ class ProductsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val binding_product = FragmentProductsBinding.inflate(layoutInflater)
+
+        val viewModel by viewModels<MainViewModel>()
+
+        viewModel.products.observe(viewLifecycleOwner) {products ->
+            binding_product.productList.adapter = ProductAdapter(products)
+        }
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_products, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val product = Product(
+            name = "Item",
+            imageFile = "image_file",
+            description = "My description",
+            size = 200,
+            price = 12.34
+        )
+
+        Log.i("Product", "My Product: $product" )
     }
 
     companion object {

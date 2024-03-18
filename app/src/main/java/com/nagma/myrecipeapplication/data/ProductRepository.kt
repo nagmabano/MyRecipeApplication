@@ -1,6 +1,7 @@
 package com.nagma.myrecipeapplication.data
 
 import android.content.Context
+import android.util.Log
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
@@ -17,12 +18,21 @@ class ProductRepository {
 
         Retrofit.Builder()
             .baseUrl(BASE_ENDPOINT_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }
 
     private val productApi: ProductApi by lazy {
         retrofit.create(ProductApi::class.java)
+    }
+
+    suspend fun getProducts(): List<Product> {
+        val response = productApi.getProducts()
+        Log.i("items","product names: ${response.body()}")
+        return if (response.isSuccessful)
+            response.body() ?: emptyList()
+        else
+            emptyList()
     }
 
 }
