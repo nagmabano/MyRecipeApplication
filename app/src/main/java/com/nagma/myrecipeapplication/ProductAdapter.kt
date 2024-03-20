@@ -32,9 +32,10 @@ class ProductAdapter(private val items:List<Product>)
 
         with(holder.binding){
             productNameText.text = product.name
-            sizeText.text = sizeText.context.resources.getString(
-                R.string.product_size_label, product.size
-            )
+            categoryText.text = product.category
+//            sizeText.text = sizeText.context.resources.getString(
+//                R.string.product_size_label, product.size
+//            )
             priceText.text = NumberFormat.getCurrencyInstance().format(product.price)
         }
 
