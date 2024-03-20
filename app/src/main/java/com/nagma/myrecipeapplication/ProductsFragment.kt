@@ -47,11 +47,12 @@ class ProductsFragment : Fragment() {
                 bind = {item, holder, itemCount ->
                     with(holder.itemView) {
                         this.findViewById<TextView>(R.id.productNameText).text = item.name
+                        this.findViewById<TextView>(R.id.categoryText).text = item.category
                         this.findViewById<ImageView>(R.id.productImage).load(item.imageFile) {
                             crossfade(100)
                         }
-                        this.findViewById<TextView>(R.id.sizeText).text = item.size.toString()
-                        this.findViewById<TextView>(R.id.priceText).text = item.price.toString()
+//                        this.findViewById<TextView>(R.id.sizeText).text = item.size.toString()
+                        this.findViewById<TextView>(R.id.priceText).text = "$" + item.price.toString()
                     }
                 }
             ) {}.apply {
