@@ -21,6 +21,7 @@ import com.nagma.myrecipeapplication.databinding.FragmentProductsBinding
 
 class ProductsFragment : Fragment() {
 
+    val viewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,8 +37,6 @@ class ProductsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val viewModel: MainViewModel by viewModels()
 
         val product_list = view.findViewById<RecyclerView>(R.id.product_list)
 
